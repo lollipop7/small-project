@@ -1,0 +1,32 @@
+<!--pages/posts/posts.wxml-->
+<view>
+  <swiper indicator-dots='true'
+      autoplay='true'
+      interval='5000'
+  >
+    <swiper-item>
+      <image src='/images/wx.png'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/iqiyi.png'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/vr.png'></image>
+    </swiper-item>
+  </swiper>
+  <view class='post-container'>
+    <view class='post-author-date'>
+      <image class='post-author' src='/images/avatar/1.png'></image>
+      <text class='post-date'>Nov 25 2016</text>
+    </view>
+    <text class='post-title'>正是虾肥蟹壮时</text>
+    <image class='post-image' src='/images/post/crab.png'></image>
+    <text class='post-content'>“山明水净夜来霜，数树深红出浅黄。试上高楼清入骨，岂如春色嗾人狂。”金秋时节，天高云淡，秋风送爽，气候宜人。秋风秋阳中，硕果坠挂枝头，玉米抚须含笑，高粱引颈高歌，豆荚饱满圆润。棉桃鼓胀欲裂，水稻灌浆初熟，世间万物经过春的孕育，夏的生长，即将抵达收获的季节。在这瓜果飘香、稻黍起舞的召唤声中，又是一度蟹肥虾壮时。</text>
+    <view class='post-like'>
+      <image class='post-like-image' src='/images/icon/chat.png'></image>
+      <text class='post-like-font'>92</text>
+      <image class='post-like-image' src='/images/icon/view.png'></image>
+      <text class='post-like-font'>65</text>
+    </view>
+  </view>
+</view>
