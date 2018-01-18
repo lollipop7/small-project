@@ -1,0 +1,9 @@
+<import src='../stars-template/stars-template'/>
+<!-- 电影组件 -->
+<template name='movieTemplate'>
+  <view class='movie-container'>
+    <image class='movie-img' src='/images/coco.jpg'></image>
+    <text class='movie-title'>寻梦环游记 Coco</text>
+    <template is='starsTemplate'/>
+  </view>
+</template>
