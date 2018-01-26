@@ -1,12 +1,14 @@
 <import src='movie-list-template/movie-list-template'/>
-<view class='container'>
-  <view class='movies-template'>
-    <template is='movieListTemplate'/>
+
+  <view class="container">
+    <view class='movies-template'>
+      <template is='movieListTemplate' data="{{...inTheaters}}"/>
+    </view>
+    <view class='movies-template'>
+      <template is='movieListTemplate' data="{{...comingSoon}}"/>
+    </view>
+    <view class='movies-template'>
+      <template is='movieListTemplate' data="{{...top250}}"/>
+    </view>
   </view>
-  <view class='movies-template'>
-      <template is='movieListTemplate'/>
-  </view>
-  <view class='movies-template'>
-    <template is='movieListTemplate'/>
-  </view>
-</view>
+
