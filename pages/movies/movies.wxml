@@ -1,12 +1,12 @@
 <import src='movie-list-template/movie-list-template'/>
-<view>
-  <view>
+<view class='container'>
+  <view class='movies-template'>
     <template is='movieListTemplate'/>
   </view>
-  <view>
-    <template is='movieListTemplate'/>
+  <view class='movies-template'>
+      <template is='movieListTemplate'/>
   </view>
-  <view>
+  <view class='movies-template'>
     <template is='movieListTemplate'/>
   </view>
 </view>
