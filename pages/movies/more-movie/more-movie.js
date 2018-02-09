@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    requestUrl: ''
+    movies: {},
+    requestUrl: '',
+    totalCount: 0,  
+    isEmpty: true, //用来判断movies是不是为空
   },
 
   /**
@@ -27,11 +30,31 @@ Page({
       break;
     }
     this.data.requestUrl = baseUrl;
-    util.http(baseUrl, this.processDoubanData)
+    util.http(baseUrl, this.processDoubanData);
     wx.setNavigationBarTitle({
       title: category
     })
   },
+
+  onScrollLower: function (event) {
+    let nextUrl = this.data.requestUrl + '?start=' + this.data.totalCount + '&count=20';
+    util.http(nextUrl, this.processDoubanData);
+    wx.showNavigationBarLoading();
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    let refreshUrl = this.data.requestUrl + '?start=0&count=20';
+    this.setData({
+      movies: {},
+      isEmpty: true
+    })
+    util.http(refreshUrl, this.processDoubanData);
+    wx.showNavigationBarLoading();
+  },
+
 
   processDoubanData: function (moviesDouban) {
     let movies = [];
@@ -51,11 +74,18 @@ Page({
       }
       movies.push(temp);
     }
-    this.setData({movies});
-  },
-
-  onScrollLower: function(event) {
-    console.log('加载更多')
+    let totalMovies = {};
+    //如果要绑定新加载的数据，那么需要同原有的数据合并在一起
+    if(!this.data.isEmpty) {
+      totalMovies = this.data.movies.concat(movies);
+    }else{
+      totalMovies = movies;
+      this.data.isEmpty = false;
+    }
+    this.setData({ movies: totalMovies });   
+    this.data.totalCount += 20;   
+    wx.hideNavigationBarLoading();  
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -83,13 +113,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
   
   },
 
