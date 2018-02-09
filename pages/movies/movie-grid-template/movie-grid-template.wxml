@@ -1,7 +1,7 @@
 <import src='../movie-template/movie-template.wxml'/>
 <!-- 更多组件 -->
 <template name="movieGridTemplate">
-  <scroll-view scroll-x="false" scroll-y="true" bindscrolltolower="onScrollLower" class="scroll-view_H">
+  <text>展现搜索页面</text>
     <view class="movie-grid-container">
       <block wx:for="{{movies}}" wx:for-item="movie">
         <view class="single-view-container">
@@ -9,5 +9,4 @@
         </view>
       </block>
     </view>
-  </scroll-view>
 </template>
